@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
+import { browserLocalPersistence, setPersistence } from "firebase/auth";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -13,10 +14,12 @@ const SignIn = () => {
 
   const handleSignIn = async () => {
     try {
+      await setPersistence(auth, browserLocalPersistence);
       const res = await signInWithEmailAndPassword(email, password);
-      console.log(res);
+
       setEmail("");
       setPassword("");
+
       router.push("/");
     } catch (e) {
       console.error(e);

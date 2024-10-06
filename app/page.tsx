@@ -1,9 +1,28 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
+import useRequireAuth from "./firebase/useRequireAuth";
 
 export default function Home() {
+  const [user] = useAuthState(auth);
+  console.log(user);
+  const router = useRouter();
+
+  useRequireAuth();
+
   return (
     <div className={styles.page}>
+      <button
+        onClick={() => {
+          signOut(auth);
+        }}
+      >
+        Log out
+      </button>
       <main className={styles.main}>
         <Image
           className={styles.logo}
