@@ -36,7 +36,19 @@ To get started with the Next.js Firebase Starter Project, follow these simple st
   ```npm install```
 
 4. Setup environment variables
+# Environment Variables for Firebase
 
-5. Run with
+The following are the environment variables used for configuring Firebase in your application. Make sure to replace the placeholder values with your actual credentials.
+
+```plaintext
+NEXT_PUBLIC_FIREBASE_API_KEY="your api key"
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your-auth-domain.firebaseapp.com"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="your-project-id"
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="your-storage-bucket.appspot.com"
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="your-sender-id"
+NEXT_PUBLIC_FIREBASE_APP_ID="your-app-id"
+
+
+6. Run with
    ```npm run dev```
    
